@@ -21,10 +21,8 @@ func Handler() (string, error) {
 
 	if isChanged {
 		err = line.SendLineNotify("The item is available now!")
-		if err != nil {
-			log.Fatal("Error in sending Line Notify: ", err)
-			return "", err
-		}
+	} else {
+		err = line.SendLineNotify("The item is nothing")
 	}
-	return "ok", nil
+	return "ok", err
 }

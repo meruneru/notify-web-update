@@ -3,6 +3,7 @@ package line
 import (
 	"bytes"
 	"fmt"
+	"log"
 	"net/http"
 	"os"
 )
@@ -30,5 +31,9 @@ func SendLineNotify(message string) error {
 
 	client := &http.Client{}
 	_, err = client.Do(req)
+	if err != nil {
+		log.Fatal("Error in sending Line Notify: ", err)
+	}
+
 	return err
 }
