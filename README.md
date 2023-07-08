@@ -1,4 +1,4 @@
-# notifu-web-update
+# notify-web-update
 
 # プロジェクト構成
 
