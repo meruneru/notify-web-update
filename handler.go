@@ -4,8 +4,8 @@ import (
 	"log"
 
 	"github.com/aws/aws-lambda-go/lambda"
-	"github.com/meruneru/notify-web-update/notifier"
-	"github.com/meruneru/notify-web-update/scraper"
+	"github.com/meruneru/notify-web-update/modules/line"
+	"github.com/meruneru/notify-web-update/modules/web"
 )
 
 func main() {
@@ -13,15 +13,18 @@ func main() {
 }
 
 func Handler() (string, error) {
-	isChanged, err := scraper.Scraping()
+	isChanged, err := web.Scraping()
 	if err != nil {
 		log.Fatal("Error in Scraping: ", err)
+		return "", err
 	}
 
 	if isChanged {
-		err = notifier.SendLineNotify("The item is available now!")
+		err = line.SendLineNotify("The item is available now!")
 		if err != nil {
 			log.Fatal("Error in sending Line Notify: ", err)
+			return "", err
 		}
 	}
+	return "ok", nil
 }
