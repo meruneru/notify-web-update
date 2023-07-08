@@ -4,11 +4,11 @@
 
 ```text
     /src
-        handler.go // AWS Lambdaから呼び出されるメインのハンドラー関数
         scraper.go // ウェブスクレイピングのロジック
         notifier.go // LINEに通知を送るロジック
     /tests
         // ユニットテストや統合テストのコード
+    main.go // AWS Lambdaから呼び出されるメインのハンドラー関数
     Dockerfile
     .gitignore
     README.md
