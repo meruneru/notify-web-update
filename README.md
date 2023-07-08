@@ -3,7 +3,6 @@
 # プロジェクト構成
 
 ```text
-/your-project
     /src
         /lambda
             handler.go // AWS Lambdaから呼び出されるメインのハンドラー関数
