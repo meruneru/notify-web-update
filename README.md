@@ -3,9 +3,11 @@
 # プロジェクト構成
 
 ```text
-    /src
-        scraper.go // ウェブスクレイピングのロジック
-        notifier.go // LINEに通知を送るロジック
+    /modules
+        /line
+            notifier.go // LINEに通知を送るロジック
+        /web
+            scraper.go // ウェブスクレイピングのロジック
     /tests
         // ユニットテストや統合テストのコード
     main.go // AWS Lambdaから呼び出されるメインのハンドラー関数
