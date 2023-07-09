@@ -20,8 +20,10 @@ func Handler() (string, error) {
 	}
 
 	if isChanged {
+		log.Printf("変更を検出")
 		err = line.SendLineNotify("商品が販売されています！！！ https://eplus.jp/sf/detail/0158310001-P0030052?P6=001&P1=0402&P59=1")
 	} else {
+		log.Printf("変更なし")
 		//err = line.SendLineNotify("商品が売り切れです。")
 	}
 	return "ok", err
