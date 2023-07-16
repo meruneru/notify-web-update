@@ -17,7 +17,7 @@
 
 本プロジェクトの実行環境はDockerfileで提供しており、docker imageをAWS ECRにプッシュし、LambdaとECRを連携して利用します。
 
-[システム構成](./img/system-diagram.png)
+![システム構成](./img/system-diagram.png)
 
 ## 運用環境の構築
 
