@@ -37,6 +37,15 @@
 3. 作成したLambda関数の設定画面で、先ほど取得したLINEトークンを環境変数LINE_NOTIFY_TOKENとして設定します。
 4. トリガーとしてEventBridgeを設定する。
 
+
+# ローカル実行
+
+AWS SAMを用いてローカル実行をする。
+local_run.shの冒頭にLINE Tokenを設定して、スクリプトを実行する。
+```
+$ ./local_run.sh
+```
+
 ## プロジェクト構成（参考）
 
 ```text

@@ -1,0 +1,47 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'notify-web-update
+
+  Sample SAM Template for notify-web-update
+
+  '
+Globals:
+  Function:
+    Timeout: 5
+    MemorySize: 128
+    Environment:
+      Variables:
+        LINE_NOTIFY_TOKEN:
+          Fn::Sub: ${LINE_NOTIFY_TOKEN}
+Resources:
+  NotifyWebUpdateFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: NotifyWebUpdateFunction
+      Handler: notify-web-update
+      Runtime: go1.x
+      Events:
+        HelloWorld:
+          Type: Api
+          Properties:
+            Path: /notify
+            Method: get
+    Metadata:
+      SamResourceId: NotifyWebUpdateFunction
+Outputs:
+  HelloWorldAPI:
+    Description: API Gateway endpoint URL for Prod environment for First Function
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/
+  HelloWorldFunction:
+    Description: First Lambda Function ARN
+    Value:
+      Fn::GetAtt:
+      - HelloWorldFunction
+      - Arn
+  HelloWorldFunctionIamRole:
+    Description: Implicit IAM Role created for Hello World function
+    Value:
+      Fn::GetAtt:
+      - HelloWorldFunctionRole
+      - Arn
